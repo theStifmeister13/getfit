@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Get Fit</title>
+  <meta name="description" content="Get Fit"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#039be5"/>
+  <link rel="stylesheet" href="css/materialize.min.css">  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="/img/icons/icon-512x512.png"> 
+  <link rel="apple-touch-icon" href="/img/icons/icon-192x192.png"> 
+ 
+</head>
+<body class="grey lighten-4">
+  <!-- Navigasi -->
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="index.html" class="brand-logo" id="logo-container">Get Fit</a>
+      <a href="index.html" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+      
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav grey lighten-4" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+  <div class="container" id="body-content"></div>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/nav.js"></script>  
+
+  <script>
+    // REGISTER SERVICE WORKER
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(function() {
+            console.log("Pendaftaran ServiceWorker berhasil");
+          })
+          .catch(function() {
+            console.log("Pendaftaran ServiceWorker gagal");
+          });
+      });
+    } else {
+      console.log("ServiceWorker belum didukung browser ini.");
+    }
+  </script>
+
+</body>
+</html>
